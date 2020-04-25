@@ -17,7 +17,13 @@ def flip_coin(call, bet):
         print("Heads!")
     else: print("Tails!")
 
-
+    #Prints bet result
+    if (call == "Heads" and result == 1) or (call == "Tails" and result == 2):
+        print("You've won " + str(bet) + " dollars!")
+        return bet
+    else:
+        print("You've lost " + str(bet)+" dollars!")
+        return -bet
 
 
 
