@@ -52,4 +52,29 @@ def cho_han(call, bet):
         return -bet
 
 
+def high_card(bet):
+    #Has to bet money
+    if bet <= 0:
+        print("They say you need money to make money! Make sure your bet is over 0.")
+        return 0
+    
+    # Draws two cards between 1 and 10 and prints the result
+    print("Let's play a game of cards!")
+    user = random.randint(1, 10)
+    bot = random.randint(1, 10)
+    print("Your card was " + str(user))
+    print("The bot's card was " + str(bot))
+
+    #Determines who won and returns either bet, -bet or 0 (in the case of a tie.)
+    if user > bot:
+        print("You've won " + str(bet)+" dollars!")
+        return bet
+    elif user < bot:
+        print("You've lost " + str(bet)+" dollars!")
+        return -bet
+    else:
+        print("It's a tie!")
+        return 0
+
+
 #Call your game of chance functions here
