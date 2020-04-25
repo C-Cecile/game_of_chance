@@ -77,4 +77,95 @@ def high_card(bet):
         return 0
 
 
+def roulette(call, bet):
+    #Has to bet money
+    if bet <= 0:
+        print("They say you need money to make money! Make sure your bet is over 0.")
+        return 0
+
+    #Roulette has the numbers 0 through 36 as well as 00. We use 37 to represent 00.
+    print("------------------")
+    print("Let's play roulette!")
+    result = random.randint(0, 37)
+    if result == 37:
+        print("The wheel landed on 00")
+    else:
+        print("The wheel landed on " + str(result))
+
+    #Checks to see if we guessed Even and the result was even. If the result was 0, the player shouldn't win
+    if call == "Even" and result % 2 == 0 and result != 0:
+        print(str(result) + " is an even number.")
+        print("You've won " + str(bet)+" dollars!")
+        print("------------------")
+        return bet
+
+    #Checks to see if we guessed Odd and the result was odd. If the result was 37, the player shouldn't win, since that's what we are using to represent 00.
+    elif call == "Odd" and result % 2 == 1 and result != 37:
+        print(str(result) + " is an odd number.")
+        print("You've won " + str(bet)+" dollars!")
+        print("------------------")
+        return bet
+
+    # If you guessed a number and the result was that number, you should win 35 times the amount they bet
+    elif call == result:
+        print("You've guessed " + str(guess) + " and the result was " + str(result))
+        print("You've won " + str(bet * 35)+" dollars!")
+        print("------------------")
+        return bet * 35
+
+    # If none of the above are true, you lost.
+    else:
+        print("You've lost " + str(bet)+" dollars!")
+        print("------------------")
+        return -bet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Call your game of chance functions here
